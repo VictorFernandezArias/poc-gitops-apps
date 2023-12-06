@@ -13,7 +13,7 @@ spec:
     targetRevision: main
     helm:
       valueFiles:
-      - $values/values-prod.yaml
+      - $values/values-dev.yaml
   - ref: values
     repoURL: https://github.com/VictorFernandezArias/poc-gitops-github-values.git
     targetRevision: main
