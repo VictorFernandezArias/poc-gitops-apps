@@ -1,11 +1,11 @@
 apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
-  name: app1-prod
+  name: helm-app
 spec:
   destination:
     name: ''
-    namespace: poc-clh
+    namespace: poc-clh-6
     server: 'https://kubernetes.default.svc'
   sources: 
   - path: helm
@@ -15,7 +15,7 @@ spec:
       valueFiles:
       - $values/app1/values-prod.yaml
   - ref: values
-    repoURL: https://github.com/VictorFernandezArias/poc-gitops-apps.git
+    repoURL: https://github.com/VictorFernandezArias/poc-gitops-values.git
     targetRevision: main
   project: default
   syncPolicy:
