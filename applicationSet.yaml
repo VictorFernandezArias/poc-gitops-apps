@@ -1,0 +1,39 @@
+apiVersion: argoproj.io/v1alpha1
+kind: ApplicationSet
+metadata:
+  name: helm-apps
+spec:
+  generators:
+  - list:
+      elements:
+      - app: app1
+        env: prod
+      - app: app1
+        env: dev
+      - app: app2
+        env: prod    
+  template:
+    metadata:
+      name: '{{app}}-{{env}}'
+    spec:
+      project: default
+      sources:
+      - repoURL: https://github.com/VictorFernandezArias/poc-gitops-resources.git
+        targetRevision: main
+        path: helm
+        helm:
+          valueFiles:
+          - $values/app1/values-{{env}}.yaml
+      - ref: values
+        repoURL: https://github.com/VictorFernandezArias/poc-gitops-values.git
+        targetRevision: main  
+      destination:
+        server: 'https://kubernetes.default.svc'
+        namespace: poc-clh-6
+        name: ''
+      project: default
+      syncPolicy:
+        automated:
+          prune: false
+          selfHeal: false
+      
