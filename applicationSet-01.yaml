@@ -31,5 +31,3 @@ spec:
       destination:
         server: https://kubernetes.default.svc
         namespace: poc-clh-6
-
-      
