@@ -1,7 +1,7 @@
 apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
-  name: helm-app-1
+  name: helm-app
   namespace: user1-argocd # Especificar el namespace de ArgoCD. Necesario si es controlado por otra app.
 spec:
   destination:
@@ -10,7 +10,7 @@ spec:
     server: 'https://kubernetes.default.svc'
   sources: 
   - path: helm
-    repoURL: https://github.com/VictorFernandezArias/poc-gitops-github.git
+    repoURL: https://github.com/VictorFernandezArias/poc-gitops-resources.git
     targetRevision: main
     helm:
       valueFiles:
