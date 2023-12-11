@@ -9,7 +9,7 @@ spec:
     namespace: poc-clh
     server: 'https://kubernetes.default.svc'
   source:
-    path: microservice01
+    path: Applications/microservice01
     repoURL: https://github.com/VictorFernandezArias/poc-gitops-apps.git
     targetRevision: main
     directory:
