@@ -5,14 +5,14 @@ metadata:
   namespace: user1-argocd
 spec:
   generators:
-    - list:
-        elements:
-          - app: app1
-            env: prod
-          - app: app1
-            env: dev
-          - app: app2
-            env: prod    
+  - list:
+      elements:
+      - app: app1
+        env: prod
+      - app: app1
+        env: dev
+      - app: app2
+        env: prod    
   template:
     metadata:
       name: '{{app}}-{{env}}'
