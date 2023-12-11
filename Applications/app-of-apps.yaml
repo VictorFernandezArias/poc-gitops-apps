@@ -2,7 +2,7 @@ apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
   name: helm-app-of-apps
-  namespace: user1-argocd # Especificar el namespace de ArgoCD. Necesario si es controlado por otra app.
+  namespace: user1-argocd
 spec:
   destination:
     name: ''
