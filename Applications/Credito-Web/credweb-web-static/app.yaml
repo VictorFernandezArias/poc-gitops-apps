@@ -1,20 +1,20 @@
 apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
-  name: helm-app-of-apps
+  name: helm-credweb-web-static
   namespace: user1-argocd
 spec:
   destination:
     name: ''
     namespace: poc-clh
     server: 'https://kubernetes.default.svc'
-  source:
-    path: Applications/Credito-Web/
-    repoURL: https://github.com/VictorFernandezArias/poc-gitops-apps.git
-    targetRevision: poc-clh
-    directory:
-      recurse: true
-  sources: []
+  source: 
+    path: helm/app01
+    repoURL: https://github.com/VictorFernandezArias/poc-gitops-helm-credito-web.git
+    targetRevision: main
+    helm:
+      valueFiles:
+      - values-prod.yaml
   project: default
   syncPolicy:
     automated:

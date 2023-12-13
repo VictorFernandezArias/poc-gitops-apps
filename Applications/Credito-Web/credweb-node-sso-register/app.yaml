@@ -1,8 +1,8 @@
 apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
-  name: helm-app01
-  namespace: user1-argocd # Especificar el namespace de ArgoCD. Necesario si es controlado por otra app.
+  name: helm-credweb-node-sso-register
+  namespace: user1-argocd
 spec:
   destination:
     name: ''
@@ -10,7 +10,7 @@ spec:
     server: 'https://kubernetes.default.svc'
   source: 
     path: helm/app01
-    repoURL: https://github.com/VictorFernandezArias/poc-gitops-resources.git
+    repoURL: https://github.com/VictorFernandezArias/poc-gitops-helm-credito-web.git
     targetRevision: main
     helm:
       valueFiles:
