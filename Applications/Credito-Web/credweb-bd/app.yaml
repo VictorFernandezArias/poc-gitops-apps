@@ -9,7 +9,7 @@ spec:
     namespace: poc-clh
     server: 'https://kubernetes.default.svc'
   source: 
-    path: helm/app01
+    path: credweb-bd
     repoURL: https://github.com/VictorFernandezArias/poc-gitops-helm-credito-web.git
     targetRevision: main
     helm:
